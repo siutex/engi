@@ -1,0 +1,55 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.1.RELEASE'
+        springOauth2Version = '2.1.0.RELEASE'
+
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    baseName = 'gs-accessing-data-mysql'
+    version =  '0.1.0'
+}
+
+group 'zpi'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}",
+            'org.springframework.boot:spring-boot-starter-security',
+            "org.springframework.security.oauth:spring-security-oauth2:${springOauth2Version}",
+            'org.springframework.boot:spring-boot-starter-data-jpa',
+            'mysql:mysql-connector-java',
+            'org.springframework.boot:spring-boot-starter-thymeleaf'
+    )
+    compileOnly('org.projectlombok:lombok')
+    compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.7.0'
+
+    testCompile(
+            'org.junit.jupiter:junit-jupiter-api:5.0.1',
+            'org.springframework.boot:spring-boot-starter-test',
+            'org.springframework.security:spring-security-test'
+    )
+    testRuntime(
+            'org.junit.jupiter:junit-jupiter-engine:5.0.1'
+    )
+}
+
