@@ -1,0 +1,44 @@
+<div class="container">
+  <h3><a routerLink="/" routerLinkActive="active"   (click)="myHome()"><strong>{{appName}}</strong></a></h3>
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a routerLink="/" routerLinkActive="active"  (click)="myHome()">Strona Główna</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li class="dropdown active">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Serwisy <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a  routerLink="/doctor" routerLinkActive="active">Doktorzy</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a  routerLink="/hospital" routerLinkActive="active">Gabinety</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="szukaj">
+          </div>
+          <button type="submit" class="btn btn-info">Szukaj</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a routerLink="/auth/login" routerLinkActive="active"  *ngIf="isLoggedIn === false">Zaloguj</a></li>
+          <li><a routerLink="/auth/register" routerLinkActive="active" *ngIf="isLoggedIn === false">Rejestracja</a></li>
+          <li><a routerLink="/auth/editprofile" routerLinkActive="active"  *ngIf="isLoggedIn === true">Mój profil</a></li>
+          <li><a routerLink="/auth/logout" routerLinkActive="active" *ngIf="isLoggedIn === true"  (click)="onLogout()">Wyloguj</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

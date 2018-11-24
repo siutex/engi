@@ -1,25 +1,20 @@
 ---- MySQL dump 10.13  Distrib 5.7.19, for Linux (x86_64)
 ----
----- Host: localhost    Database: healthapp
----- ------------------------------------------------------
----- Server version   5.7.19-0ubuntu0.16.04.1
---
---/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
---/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
---/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
---/*!40101 SET NAMES utf8 */;
---/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
---/*!40103 SET TIME_ZONE='+00:00' */;
---/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
---/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
---/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
---/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
---
-----
----- Table structure for table `ClientDetails`
-----
---
+---- Host: localhost    Database: webgabinet
+
+DROP TABLE IF EXISTS `rx`;
+DROP TABLE IF EXISTS `oauth_client_details`;
+DROP TABLE IF EXISTS `oauth_approvals`;
+DROP TABLE IF EXISTS `oauth_client_token`;
+DROP TABLE IF EXISTS `oauth_access_token`;
+DROP TABLE IF EXISTS `oauth_code`;
+DROP TABLE IF EXISTS `oauth_refresh_token`;
 DROP TABLE IF EXISTS `ClientDetails`;
+DROP TABLE IF EXISTS `doctor_qualification`;
+DROP TABLE IF EXISTS `doctor_location`;
+DROP TABLE IF EXISTS `health_centre`;
+DROP TABLE IF EXISTS `doctor`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ClientDetails` (
@@ -50,8 +45,6 @@ UNLOCK TABLES;
 --
 -- Table structure for table `user`
 --
-
-DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
@@ -82,7 +75,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (25,'aiyana@gmail.com','book','Aiyana Shukla',NULL,0,0,NULL,NULL,NULL,NULL,NULL,NULL,'2017-08-08 11:57:42','2017-08-08 11:57:42',1),(26,'anisha@gmail.com','book','Anisha Shukla',NULL,0,0,NULL,NULL,NULL,NULL,NULL,NULL,'2017-08-08 11:58:02','2017-08-08 11:58:02',0);
+INSERT INTO `user` VALUES (25,'admin@gmail.com','book','Dr House',NULL,0,0,NULL,NULL,NULL,NULL,NULL,NULL,'2017-08-08 11:57:42','2017-08-08 11:57:42',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -91,7 +84,6 @@ UNLOCK TABLES;
 -- Table structure for table `doctor`
 --
 
-DROP TABLE IF EXISTS `doctor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `doctor` (
@@ -119,8 +111,6 @@ UNLOCK TABLES;
 --
 -- Table structure for table `health_centre`
 --
-
-DROP TABLE IF EXISTS `health_centre`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `health_centre` (
@@ -149,7 +139,7 @@ UNLOCK TABLES;
 -- Table structure for table `doctor_location`
 --
 
-DROP TABLE IF EXISTS `doctor_location`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `doctor_location` (
@@ -179,7 +169,7 @@ UNLOCK TABLES;
 -- Table structure for table `doctor_qualification`
 --
 
-DROP TABLE IF EXISTS `doctor_qualification`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `doctor_qualification` (
@@ -207,7 +197,7 @@ UNLOCK TABLES;
 -- Table structure for table `oauth_access_token`
 --
 
-DROP TABLE IF EXISTS `oauth_access_token`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `oauth_access_token` (
@@ -235,7 +225,6 @@ UNLOCK TABLES;
 -- Table structure for table `oauth_approvals`
 --
 
-DROP TABLE IF EXISTS `oauth_approvals`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `oauth_approvals` (
@@ -261,7 +250,6 @@ UNLOCK TABLES;
 -- Table structure for table `oauth_client_details`
 --
 
-DROP TABLE IF EXISTS `oauth_client_details`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `oauth_client_details` (
@@ -293,7 +281,7 @@ UNLOCK TABLES;
 -- Table structure for table `oauth_client_token`
 --
 
-DROP TABLE IF EXISTS `oauth_client_token`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `oauth_client_token` (
@@ -319,7 +307,6 @@ UNLOCK TABLES;
 -- Table structure for table `oauth_code`
 --
 
-DROP TABLE IF EXISTS `oauth_code`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `oauth_code` (
@@ -341,7 +328,7 @@ UNLOCK TABLES;
 -- Table structure for table `oauth_refresh_token`
 --
 
-DROP TABLE IF EXISTS `oauth_refresh_token`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `oauth_refresh_token` (
@@ -364,7 +351,7 @@ UNLOCK TABLES;
 -- Table structure for table `rx`
 --
 
-DROP TABLE IF EXISTS `rx`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `rx` (
