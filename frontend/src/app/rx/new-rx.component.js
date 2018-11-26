@@ -26,18 +26,21 @@ var NewRxComponent = /** @class */ (function () {
         this.rxService.createRx(this.rx)
             .subscribe(function (rx) {
             _this.rxStatus.code = 'SUCCESS';
-            _this.rxStatus.message = 'Prescription is successfully created!';
+            _this.rxStatus.message = 'Wizyta dodana';
             _this.alertStyle = 'alert alert-success';
         }, function (error) {
             if (error === 'invalid_token') {
                 _this.rxStatus.code = 'FAILURE';
-                _this.rxStatus.message = 'Prescription is not created. You need to login again!';
+                _this.rxStatus.message = 'Wizyta niedodana. Zaloguj się ponownie';
                 _this.alertStyle = 'alert alert-danger';
             }
             else {
-                console.error('An error occurred while creating the rx, navigating to login: ', error);
+                console.error('Błąd przy tworzeniu wizyty przekierowanie na główną: ', error);
             }
-            _this.router.navigateByUrl('/auth/login');
+            // this.router.navigateByUrl('/rx/new');
+            _this.rxStatus.code = 'FAILURE';
+            _this.rxStatus.message = 'Taki pacjent nie istnieje';
+            _this.alertStyle = 'alert alert-danger';
         });
     };
     NewRxComponent = __decorate([

@@ -14,7 +14,7 @@ var RxComponent = /** @class */ (function () {
     };
     RxComponent = __decorate([
         core_1.Component({
-            template: "<div style=\"float:left\">\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\"><a routerLink=\"/rx\" routerLinkActive=\"active\">Diagnoza</a></li>\n      <li class=\"list-group-item\"><a routerLink=\"/rx/new\" routerLinkActive=\"active\">Nowa Diagnoza</a></li>\n    </ul>\n  </div>\n  <div style=\"margin-left: 160px\">\n    <router-outlet></router-outlet>\n  </div>\n  ",
+            template: "<div style=\"float:left\">\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\"><a routerLink=\"/rx\" routerLinkActive=\"active\">Wizyty</a></li>\n      <li class=\"list-group-item\"><a routerLink=\"/rx/new\" routerLinkActive=\"active\">Nowa Wizyta</a></li>\n    </ul>\n  </div>\n  <div style=\"margin-left: 160px\">\n    <router-outlet></router-outlet>\n  </div>\n  ",
         })
     ], RxComponent);
     return RxComponent;

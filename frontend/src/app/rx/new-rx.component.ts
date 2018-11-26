@@ -21,19 +21,21 @@ export class NewRxComponent {
     this.rxService.createRx(this.rx)
       .subscribe((rx: Rx) => {
         this.rxStatus.code = 'SUCCESS';
-        this.rxStatus.message = 'Prescription is successfully created!';
+        this.rxStatus.message = 'Wizyta dodana';
         this.alertStyle = 'alert alert-success';
       },
       error =>  {
         if (error === 'invalid_token') {
           this.rxStatus.code = 'FAILURE';
-          this.rxStatus.message = 'Prescription is not created. You need to login again!';
+          this.rxStatus.message = 'Wizyta niedodana. Zaloguj się ponownie';
           this.alertStyle = 'alert alert-danger';
         } else {
-          console.error('An error occurred while creating the rx, navigating to login: ', error);
+          console.error('Błąd przy tworzeniu wizyty przekierowanie na główną: ', error);
         }
-        this.router.navigateByUrl('/auth/login');
-
+       // this.router.navigateByUrl('/rx/new');
+          this.rxStatus.code = 'FAILURE';
+          this.rxStatus.message = 'Taki pacjent nie istnieje';
+          this.alertStyle = 'alert alert-danger';
       });
   }
 }

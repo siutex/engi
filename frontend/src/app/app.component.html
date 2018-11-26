@@ -32,7 +32,7 @@
           <button type="submit" class="btn btn-info">Szukaj</button>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><a routerLink="/auth/login" routerLinkActive="active"  *ngIf="isLoggedIn === false">Zaloguj</a></li>
+          <li><a routerLink="/auth/login" routerLinkActive="active"  *ngIf="isLoggedIn === false" >Zaloguj</a></li>
           <li><a routerLink="/auth/register" routerLinkActive="active" *ngIf="isLoggedIn === false">Rejestracja</a></li>
           <li><a routerLink="/auth/editprofile" routerLinkActive="active"  *ngIf="isLoggedIn === true">Mój profil</a></li>
           <li><a routerLink="/auth/logout" routerLinkActive="active" *ngIf="isLoggedIn === true"  (click)="onLogout()">Wyloguj</a></li>

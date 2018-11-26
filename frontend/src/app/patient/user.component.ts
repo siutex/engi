@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   template:  `
     <div style="float:left">
       <ul class="list-group">
-        <li class="list-group-item">My Prescriptions</li>
+        <li class="list-group-item">Moje wizyty</li>
       </ul>
     </div>
     <div style="margin-left: 160px">

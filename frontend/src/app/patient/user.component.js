@@ -12,7 +12,7 @@ var UserComponent = /** @class */ (function () {
     }
     UserComponent = __decorate([
         core_1.Component({
-            template: "\n    <div style=\"float:left\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item\">My Prescriptions</li>\n      </ul>\n    </div>\n    <div style=\"margin-left: 160px\">\n      <router-outlet></router-outlet>\n    </div>\n  "
+            template: "\n    <div style=\"float:left\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item\">Moje wizyty</li>\n      </ul>\n    </div>\n    <div style=\"margin-left: 160px\">\n      <router-outlet></router-outlet>\n    </div>\n  "
         })
     ], UserComponent);
     return UserComponent;

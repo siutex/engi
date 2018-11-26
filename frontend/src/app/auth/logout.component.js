@@ -12,7 +12,7 @@ var LogoutComponent = /** @class */ (function () {
     }
     LogoutComponent = __decorate([
         core_1.Component({
-            template: "\n  <div>Wylogowano!</div>\n  "
+            template: "\n  <div>You have just logged out!</div>\n  "
         })
     ], LogoutComponent);
     return LogoutComponent;
