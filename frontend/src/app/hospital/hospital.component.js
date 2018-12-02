@@ -7,15 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+var HospitalComponent = /** @class */ (function () {
+    function HospitalComponent() {
     }
-    HomeComponent = __decorate([
+    HospitalComponent.prototype.ngOnInit = function () {
+    };
+    HospitalComponent = __decorate([
         core_1.Component({
-            template: "\n        <div class=\"jumbotron\">\n            <h1>Witamy w WebGabinet</h1>\n            <p>Jest platforma do obs\u0142ugi gabinetu lekarskiego</p>\n            <p><a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Learn more</a></p>\n        </div>\n    ",
+            template: "<div style=\"float:left\">\n        <ul class=\"list-group\">\n            <li class=\"list-group-item\"><a routerLink=\"/hospital\" routerLinkActive=\"active\">Gabinety</a></li>\n        </ul>\n    </div>\n    <div style=\"margin-left: 160px\">\n        <router-outlet></router-outlet>\n    </div>\n    ",
         })
-    ], HomeComponent);
-    return HomeComponent;
+    ], HospitalComponent);
+    return HospitalComponent;
 }());
-exports.HomeComponent = HomeComponent;
-//# sourceMappingURL=home.component.js.map
+exports.HospitalComponent = HospitalComponent;
+//# sourceMappingURL=hospital.component.js.map

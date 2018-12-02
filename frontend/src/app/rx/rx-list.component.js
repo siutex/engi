@@ -27,11 +27,11 @@ var RxListComponent = /** @class */ (function () {
             .subscribe(function (rxlist) {
             _this.rxlist = rxlist;
             if (_this.rxlist.length === 0) {
-                _this.errorMessage = 'Nie masz utworzonych wizyt';
+                _this.errorMessage = 'There are no prescriptions you have created so far!';
             }
         }, function (error) {
             _this.router.navigateByUrl('/auth/login');
-            console.error('Błąd przy pobieraniu listy wizyt przekierowuję do logowania: ', error);
+            console.error('An error occurred in retrieving rx list, navigating to login: ', error);
         });
     };
     RxListComponent = __decorate([

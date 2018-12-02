@@ -6,28 +6,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var home_component_1 = require("./home.component");
-// import { PageNotFoundComponent } from './page-not-found.component';
-var appRoutes = [
-    { path: 'index', component: home_component_1.HomeComponent },
-    { path: '', redirectTo: 'index', pathMatch: 'full' },
-];
-var AppRoutingModule = /** @class */ (function () {
-    function AppRoutingModule() {
+var core_1 = require("@angular/core");
+var hospital_list_component_1 = require("./hospital-list.component");
+var hospital_component_1 = require("./hospital.component");
+var hospitalRoutes = [
+    {
+        path: 'hospital',
+        component: hospital_component_1.HospitalComponent,
+        children: [
+            {
+                path: '',
+                component: hospital_list_component_1.HospitalListComponent,
+            }
+        ],
     }
-    AppRoutingModule = __decorate([
+];
+var HospitalRoutingModule = /** @class */ (function () {
+    function HospitalRoutingModule() {
+    }
+    HospitalRoutingModule = __decorate([
         core_1.NgModule({
             imports: [
-                router_1.RouterModule.forRoot(appRoutes)
+                router_1.RouterModule.forChild(hospitalRoutes)
             ],
             exports: [
                 router_1.RouterModule
             ]
         })
-    ], AppRoutingModule);
-    return AppRoutingModule;
+    ], HospitalRoutingModule);
+    return HospitalRoutingModule;
 }());
-exports.AppRoutingModule = AppRoutingModule;
-//# sourceMappingURL=app-routing.module.js.map
+exports.HospitalRoutingModule = HospitalRoutingModule;
+//# sourceMappingURL=hospital-routing.module.js.map

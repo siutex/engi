@@ -2,23 +2,49 @@ package com.engi.webgabinet.domain;
 
 import java.sql.Timestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-public class HealthCentre {
+@Table(name="health_centre")
+@NamedQueries({
+		@NamedQuery(
+				name = "findByHealthCenterName",
+				query = "from HealthCentre u where u.name = :name"
+		),
+		@NamedQuery(
+				name = "findAllHealthCenter",
+				query = "from HealthCentre"
+		),
+		@NamedQuery(
+				name = "findAllCountHealthCenter",
+				query = "select count(d) from HealthCentre d"
+		),
+		@NamedQuery(
+				name = "findByIdHealthCenter",
+				query = "from HealthCentre h where h.id = :id"
+		),
+})
+
+public class HealthCentre implements java.io.Serializable{
+
+	private static final long serialVersionUID = 21L;
 
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	@Column(name = "name")
 	private String name;
+	@Column(name = "address")
 	private String address;
+	@Column(name = "city_code")
 	private String cityCode;
+	@Column(name = "state_code")
 	private String stateCode;
+	@Column(name = "country_code")
 	private String countryCode;
+	@Column(name = "create_time")
 	private Timestamp createTime;
+	@Column(name = "last_updated")
 	private Timestamp lastUpdated;
 	
 	public int getId() {

@@ -1,6 +1,5 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { DocComponent }       from './doc.component';
 import { DoctorListComponent }       from './doctor-list.component';
 import { DocHomeComponent } from './doc-home.component';

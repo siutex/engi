@@ -4,7 +4,7 @@ import {BaseRequestOptions, Http, HttpModule} from '@angular/http';
 import {DoctorService} from './doctor.service';
 import {MockBackend} from '@angular/http/testing';
 import {ConnectionHelper} from '../testing/http-stubs';
-import {Doctor} from "./doctor";
+import {Doctor} from './doctor';
 
 
 describe('DoctorService', function () {

@@ -1,9 +1,16 @@
 package com.engi.webgabinet.repositories;
 
-import org.springframework.data.repository.CrudRepository;
-
 import com.engi.webgabinet.domain.HealthCentre;
 
-public interface HealthCentreDAO  {
+import java.util.List;
+
+public interface HealthCentreDAO {
+    List<HealthCentre> findAll();
+
+    int findAllCount();
+
+    List<HealthCentre> findByName(String name);
+
+    HealthCentre findById(int id);
 
 }

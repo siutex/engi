@@ -88,7 +88,7 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `doctor` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `speciality_code` varchar(20) NOT NULL DEFAULT 'physician',
+  `speciality_code` varchar(20) NOT NULL DEFAULT 'stomatolog',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` bigint(20) DEFAULT NULL,
@@ -104,7 +104,7 @@ CREATE TABLE `doctor` (
 
 LOCK TABLES `doctor` WRITE;
 /*!40000 ALTER TABLE `doctor` DISABLE KEYS */;
-INSERT INTO `doctor` VALUES (10,'PHYSICIAN','2017-08-08 12:02:06','2017-08-08 12:02:06',25);
+INSERT INTO `doctor` VALUES (10,'stomatolog','2017-08-08 12:02:06','2017-08-08 12:02:06',25);
 /*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,6 +132,8 @@ CREATE TABLE `health_centre` (
 
 LOCK TABLES `health_centre` WRITE;
 /*!40000 ALTER TABLE `health_centre` DISABLE KEYS */;
+INSERT INTO `health_centre` VALUES (1,'Gabinet Stomatoligiczny','Kiepury 34','Jelenia Gora','58-506'
+,'Polska','2017-08-08 12:02:06','2017-08-08 12:02:06');
 /*!40000 ALTER TABLE `health_centre` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -376,7 +378,7 @@ CREATE TABLE `rx` (
 
 LOCK TABLES `rx` WRITE;
 /*!40000 ALTER TABLE `rx` DISABLE KEYS */;
-INSERT INTO `rx` VALUES (8,25,10,'cold & fever','cetrizine','2017-08-08 12:02:39','2017-08-08 12:02:39');
+INSERT INTO `rx` VALUES (8,25,10,'przeziebienie','apap','2017-08-08 12:02:39','2017-08-08 12:02:39');
 /*!40000 ALTER TABLE `rx` ENABLE KEYS */;
 UNLOCK TABLES;
 

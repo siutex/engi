@@ -1,24 +1,20 @@
 package com.engi.webgabinet.services;
 
-import java.util.Iterator;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.engi.webgabinet.domain.Doctor;
 import com.engi.webgabinet.domain.User;
 import com.engi.webgabinet.exceptions.UserNotFoundException;
-import com.engi.webgabinet.helpers.DoctorList;
 import com.engi.webgabinet.repositories.DoctorDAO;
-import com.engi.webgabinet.repositories.RxDAO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class DoctorServiceImpl implements DoctorService {
 	
 	private DoctorDAO doctorDAO;
 	private UserService userService;
-	
+
 	@Autowired
 	public DoctorServiceImpl(DoctorDAO doctorDAO, UserService userService) {
 	    this.doctorDAO = doctorDAO;
@@ -75,7 +71,7 @@ public class DoctorServiceImpl implements DoctorService {
 		if(user.getRole() == 1) {
 			Doctor doctor = new Doctor();
 			doctor.setUser(user);
-			doctor.setSpecialityCode("PHYSICIAN");
+			doctor.setSpecialityCode("STOMATOLOG");
 			doctorDAO.save(doctor);
 		}
 	}
