@@ -31,6 +31,7 @@ public class HealthCenterController {
             healthCenterDTO.setHealthCenterId(healthCentre.getId());
             healthCenterDTO.setHealthCenterName(healthCentre.getName());
             healthCenterDTO.setAddress(healthCentre.getAddress());
+            healthCenterDTO.setCityCode(healthCentre.getCityCode());
             healthCenterDTOList.add(healthCenterDTO);
         }
         return healthCenterDTOList;

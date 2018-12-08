@@ -12,9 +12,11 @@ DROP TABLE IF EXISTS `oauth_refresh_token`;
 DROP TABLE IF EXISTS `ClientDetails`;
 DROP TABLE IF EXISTS `doctor_qualification`;
 DROP TABLE IF EXISTS `doctor_location`;
-DROP TABLE IF EXISTS `health_centre`;
 DROP TABLE IF EXISTS `doctor`;
 DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `equipment`;
+DROP TABLE IF EXISTS `health_centre`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ClientDetails` (
@@ -382,7 +384,32 @@ INSERT INTO `rx` VALUES (8,25,10,'przeziebienie','apap','2017-08-08 12:02:39','2
 /*!40000 ALTER TABLE `rx` ENABLE KEYS */;
 UNLOCK TABLES;
 
+--
+-- Table structure for table `rx`
+--
 
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `equipment` (
+                    `id` bigint(20) NOT NULL AUTO_INCREMENT,
+                    `equipment_name` varchar(250) DEFAULT NULL,
+                    `quantity` bigint(20) NOT NULL,
+                    `producer` varchar(250) DEFAULT NULL,
+                    `service_number` varchar(250) DEFAULT NULL,
+                    `is_maintenance` varchar(3) DEFAULT 'NIE',
+                    `is_controled` varchar(3) DEFAULT 'NIE',
+                    `last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                    `health_center_id` bigint(20) NOT NULL,
+                    PRIMARY KEY (`id`),
+                    KEY `health_center_id_fk` (`health_center_id`),
+                    CONSTRAINT `health_center_id_fk` FOREIGN KEY (`health_center_id`) REFERENCES `health_centre` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rx`
+--
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
