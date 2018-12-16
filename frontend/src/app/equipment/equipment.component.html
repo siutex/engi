@@ -2,20 +2,22 @@
     <div>
         <ol class="breadcrumb">
             <li><a href="/">Główna</a></li>
-            <li class="active">Gabinety</li>
+            <li class="active">Sprzęt</li>
         </ol>
     </div>
     <ul class="nav nav-tabs  nav-justified">
-        <li role="presentation" class="active"><a routerLink="/hospital" routerLinkActive="active">All</a></li>
+        <li role="presentation" class="active"><a routerLink="/doctor" routerLinkActive="active">Wyposażenie</a></li>
+        <li role="presentation" (click)="onSelect('dozor')"><a>Sprzęt dozorowany</a></li>
+        <li role="presentation" (click)="onSelect('zwykly')"><a>Sprzęt zwykły</a></li>
     </ul>
-    <h1>Gabinet</h1>
+    <h1>Sprzęt</h1>
     <hr/>
-    <div class="panel panel-info"  *ngFor="let hospital of hospitals">
-        <div class="panel-heading"><strong>{{hospital.healthCenterName}}</strong></div>
+    <div class="panel panel-info">
+        <div class="panel-heading"><strong>nazwa</strong></div>
         <div class="panel-body">
             <ul class="list-group">
-                <li class="list-group-item"><strong>Ulica</strong>: {{hospital.address}}</li>
-                <li class="list-group-item"><strong>Miasto</strong>: {{hospital.cityCode}}</li>
+                <li class="list-group-item"><strong>Model</strong>xxxxx</li>
+                <li class="list-group-item"><strong>Ilość</strong>xxx</li>
             </ul>
             <div>
                 <button type="button" class="btn btn-info btn-sm">
@@ -27,5 +29,4 @@
             </div>
         </div>
     </div>
-    <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
 </div>

@@ -7,15 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var LogoutComponent = /** @class */ (function () {
-    function LogoutComponent() {
+var EquipmentComponent = /** @class */ (function () {
+    function EquipmentComponent() {
     }
-    LogoutComponent = __decorate([
+    EquipmentComponent.prototype.onSubmit = function () {
+        console.log('To be implemented');
+    };
+    EquipmentComponent = __decorate([
         core_1.Component({
-            template: "\n  <div>Wylogowano !</div>\n  "
+            templateUrl: './equipment.component.html'
         })
-    ], LogoutComponent);
-    return LogoutComponent;
+    ], EquipmentComponent);
+    return EquipmentComponent;
 }());
-exports.LogoutComponent = LogoutComponent;
-//# sourceMappingURL=logout.component.js.map
+exports.EquipmentComponent = EquipmentComponent;
+//# sourceMappingURL=equipment.component.js.map

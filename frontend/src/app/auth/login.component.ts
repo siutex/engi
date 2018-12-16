@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 import {Login, LoginStatus} from './login';
 import {AuthService} from './auth.service';
-import {Router} from '@angular/router';
+// import {Router} from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -13,7 +13,7 @@ export class LoginComponent {
   loginStatus = new LoginStatus('', '');
   model = new Login('', '');
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService) {
   }
 
   onLogin() {

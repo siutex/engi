@@ -7,6 +7,7 @@ import javax.persistence.TypedQuery;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
@@ -54,13 +55,13 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override
 	public void update(User user) {
-//		Session session = this.sessionFactory.openSession();
-//		User persistentUser = (User) session.load(User.class, new Integer(user.getId()));
-//		Transaction tx = session.beginTransaction();
-//		persistentUser.setFirstName(user.getFirstname());
-//		persistentUser.setLastname(user.getLastname());
-//		session.update(persistentUser);		
-//		tx.commit();
+		Session session = this.sessionFactory.openSession();
+		User persistentUser = (User) session.load(User.class, new Integer(user.getId()));
+		Transaction tx = session.beginTransaction();
+		persistentUser.setFirstName(user.getFirstname());
+		persistentUser.setLastname(user.getLastname());
+		session.update(persistentUser);
+		tx.commit();
 		
 //		Session session = this.sessionFactory.openSession();
 //		Transaction tx1 = session.beginTransaction();

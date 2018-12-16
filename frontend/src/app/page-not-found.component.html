@@ -1,3 +1,32 @@
-<div class="jumbotron">
-  <h1>To powinno być zaimlementowane!</h1>
+<div>
+  <div>
+    <ol class="breadcrumb">
+      <li><a href="/">Główna</a></li>
+      <li class="active">Sprzęt</li>
+    </ol>
+  </div>
+  <ul class="nav nav-tabs  nav-justified">
+    <li role="presentation" class="active"><a routerLink="/doctor" routerLinkActive="active">Wyposażenie</a></li>
+    <li role="presentation" (click)="onSelect('dozor')"><a>Sprzęt dozorowany</a></li>
+    <li role="presentation" (click)="onSelect('zwykly')"><a>Sprzęt zwykły</a></li>
+  </ul>
+  <h1>Sprzęt</h1>
+  <hr/>
+  <div class="panel panel-info">
+    <div class="panel-heading"><strong>nazwa</strong></div>
+    <div class="panel-body">
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Model</strong>xxxxx</li>
+        <li class="list-group-item"><strong>Ilość</strong>xxx</li>
+      </ul>
+      <div>
+        <button type="button" class="btn btn-info btn-sm">
+          <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-success btn-sm">
+          <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

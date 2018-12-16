@@ -12,12 +12,13 @@ import { AuthService } from './auth.service';
 import {  AuthRoutingModule } from './auth-app-routing.module';
 import { LogoutComponent } from './logout.component';
 import {CommonModule} from '@angular/common';
+import {ProfileComponent} from './profile.component';
 
 
 @NgModule({
   imports:      [ CommonModule, FormsModule, AuthRoutingModule ],
   declarations: [ AuthComponent, LoginComponent,
-    UserRegistrationComponent, ForgotPasswordComponent, LogoutComponent],
+    UserRegistrationComponent, ForgotPasswordComponent, LogoutComponent, ProfileComponent],
   providers: [ {provide: AuthService, useClass: AuthService}
   ]
 })

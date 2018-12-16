@@ -11,7 +11,7 @@ import {Component, OnInit} from '@angular/core';
     </div>
     `,
 })
-export class HospitalComponent implements OnInit{
+export class HospitalComponent implements OnInit {
     ngOnInit(): void {
     }
 

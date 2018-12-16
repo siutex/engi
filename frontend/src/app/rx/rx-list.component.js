@@ -27,7 +27,7 @@ var RxListComponent = /** @class */ (function () {
             .subscribe(function (rxlist) {
             _this.rxlist = rxlist;
             if (_this.rxlist.length === 0) {
-                _this.errorMessage = 'There are no prescriptions you have created so far!';
+                _this.errorMessage = 'brak wizyt !';
             }
         }, function (error) {
             _this.router.navigateByUrl('/auth/login');

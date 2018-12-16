@@ -12,11 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var login_1 = require("./login");
 var auth_service_1 = require("./auth.service");
-var router_1 = require("@angular/router");
+// import {Router} from '@angular/router';
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(authService, router) {
+    function LoginComponent(authService) {
         this.authService = authService;
-        this.router = router;
         this.alertStyle = '';
         this.loginStatus = new login_1.LoginStatus('', '');
         this.model = new login_1.Login('', '');
@@ -45,7 +44,7 @@ var LoginComponent = /** @class */ (function () {
             selector: 'login',
             templateUrl: './login.component.html'
         }),
-        __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router])
+        __metadata("design:paramtypes", [auth_service_1.AuthService])
     ], LoginComponent);
     return LoginComponent;
 }());

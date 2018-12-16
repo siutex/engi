@@ -18,10 +18,11 @@ import {CommonModule} from '@angular/common';
 import {PipeModule} from './pipes/pipe-module';
 import {RouterStubModule} from './testing/router-stub.module';
 import {RouterModule} from '@angular/router';
+import {EquipmentModule} from './equipment/equipment.module';
 
 @NgModule({
     imports: [CommonModule, FormsModule, RouterModule, PipeModule, AuthModule, HttpModule, DocModule, UserModule,
-        RxModule, RouterStubModule, AppRoutingModule, HospitalModule],
+        RxModule, RouterStubModule, AppRoutingModule, HospitalModule, EquipmentModule],
     declarations: [AppComponent, PageNotFoundComponent, HomeComponent, SecurityBypass],
     bootstrap: [AppComponent]
 })

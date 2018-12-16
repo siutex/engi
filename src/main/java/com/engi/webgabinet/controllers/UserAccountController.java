@@ -44,7 +44,7 @@ public class UserAccountController {
         } catch (UserNotFoundException e) {
         }
         if (user != null) {
-            return new ExecutionStatus("USER_ACCOUNT_EXISTS", "User account with same email address exists. Please try again!");
+            return new ExecutionStatus("USER_ACCOUNT_EXISTS", "Taki użytkownik już istnieje");
         }
         user = new User();
         user.setEmail(reqUser.getEmail());
@@ -65,7 +65,7 @@ public class UserAccountController {
         //
         docService.addDoctor(user);
 
-        return new ExecutionStatus("USER_ACCOUNT_CREATED", "User account successfully created");
+        return new ExecutionStatus("USER_ACCOUNT_CREATED", "Konto utworzone");
     }
 
     @PostMapping(value = "/user/update")
@@ -82,7 +82,7 @@ public class UserAccountController {
         user.setAge(reqUser.getAge());
         user.setGender(reqUser.getGender());
         userService.update(user);
-        return new ExecutionStatus("USER_ACCOUNT_UPDATED", "User account successfully updated");
+        return new ExecutionStatus("USER_ACCOUNT_UPDATED", "Dane użytkownika zaaktualizowane");
     }
 
     @PostMapping(value = "/update", produces = "application/json")

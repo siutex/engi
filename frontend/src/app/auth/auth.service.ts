@@ -55,7 +55,7 @@ export class AuthService {
     return this.http.post('http://localhost:8080/oauth/token', params.toString(), options)
       .map(res => {
         this.saveToken(res.json());
-        return new LoginStatus('SUCCESS', 'Login Successful');
+        return new LoginStatus('SUCCESS', 'Zalogowano');
       })
       .catch((error: any) => {
         return Observable.of(new LoginStatus('FAILURE', 'Login lub hasło błędne'));

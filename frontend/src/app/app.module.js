@@ -23,13 +23,14 @@ var common_1 = require("@angular/common");
 var pipe_module_1 = require("./pipes/pipe-module");
 var router_stub_module_1 = require("./testing/router-stub.module");
 var router_1 = require("@angular/router");
+var equipment_module_1 = require("./equipment/equipment.module");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [common_1.CommonModule, forms_1.FormsModule, router_1.RouterModule, pipe_module_1.PipeModule, auth_module_1.AuthModule, http_1.HttpModule, doc_module_1.DocModule, user_module_1.UserModule,
-                rx_module_1.RxModule, router_stub_module_1.RouterStubModule, app_routing_module_1.AppRoutingModule, hospital_module_1.HospitalModule],
+                rx_module_1.RxModule, router_stub_module_1.RouterStubModule, app_routing_module_1.AppRoutingModule, hospital_module_1.HospitalModule, equipment_module_1.EquipmentModule],
             declarations: [app_component_1.AppComponent, page_not_found_component_1.PageNotFoundComponent, home_component_1.HomeComponent, security_bypass_pipe_1.SecurityBypass],
             bootstrap: [app_component_1.AppComponent]
         })

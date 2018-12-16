@@ -55,7 +55,7 @@ var AuthService = /** @class */ (function () {
         return this.http.post('http://localhost:8080/oauth/token', params.toString(), options)
             .map(function (res) {
             _this.saveToken(res.json());
-            return new login_1.LoginStatus('SUCCESS', 'Login Successful');
+            return new login_1.LoginStatus('SUCCESS', 'Zalogowano');
         })
             .catch(function (error) {
             return Observable_1.Observable.of(new login_1.LoginStatus('FAILURE', 'Login lub hasło błędne'));

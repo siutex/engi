@@ -6,6 +6,7 @@ import { LoginComponent } from './login.component';
 import { UserRegistrationComponent } from './user-registration.component';
 import { ForgotPasswordComponent } from './forgot-password.component';
 import {LogoutComponent} from './logout.component';
+import {ProfileComponent} from './profile.component';
 
 
 const authRoutes: Routes = [
@@ -27,6 +28,10 @@ const authRoutes: Routes = [
       {
         path: 'logout',
         component: LogoutComponent,
+      },
+      {
+        path: 'editprofile',
+        component: ProfileComponent,
       },
     ]
   }

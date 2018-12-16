@@ -16,6 +16,7 @@ var auth_service_1 = require("./auth.service");
 var auth_app_routing_module_1 = require("./auth-app-routing.module");
 var logout_component_1 = require("./logout.component");
 var common_1 = require("@angular/common");
+var profile_component_1 = require("./profile.component");
 var AuthModule = /** @class */ (function () {
     function AuthModule() {
     }
@@ -23,7 +24,7 @@ var AuthModule = /** @class */ (function () {
         core_1.NgModule({
             imports: [common_1.CommonModule, forms_1.FormsModule, auth_app_routing_module_1.AuthRoutingModule],
             declarations: [auth_component_1.AuthComponent, login_component_1.LoginComponent,
-                user_registration_component_1.UserRegistrationComponent, forgot_password_component_1.ForgotPasswordComponent, logout_component_1.LogoutComponent],
+                user_registration_component_1.UserRegistrationComponent, forgot_password_component_1.ForgotPasswordComponent, logout_component_1.LogoutComponent, profile_component_1.ProfileComponent],
             providers: [{ provide: auth_service_1.AuthService, useClass: auth_service_1.AuthService }
             ]
         })

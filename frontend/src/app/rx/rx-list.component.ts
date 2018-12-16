@@ -24,7 +24,7 @@ export class RxListComponent  implements OnInit {
       .subscribe(rxlist => {
           this.rxlist = rxlist;
           if (this.rxlist.length === 0) {
-            this.errorMessage = 'There are no prescriptions you have created so far!';
+            this.errorMessage = 'brak wizyt !';
           }
         },
         error =>  {
