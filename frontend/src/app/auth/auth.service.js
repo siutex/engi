@@ -98,6 +98,11 @@ var AuthService = /** @class */ (function () {
         })
             .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
     };
+    AuthService.prototype.getUser = function () {
+        if (this.checkLoginStatus()) {
+        }
+        ;
+    };
     AuthService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http, router_1.Router])

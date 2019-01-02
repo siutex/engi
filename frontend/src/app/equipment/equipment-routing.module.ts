@@ -1,6 +1,8 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {EquipmentComponent} from './equipment.component';
+import {NewEquipmentComponent} from './new-equipment.component';
+import {EquipmentListComponent} from './equipment-list.component';
 
 
 const equipmentRoutes: Routes = [
@@ -10,7 +12,12 @@ const equipmentRoutes: Routes = [
         children: [
             {
                 path: '',
-                component: EquipmentComponent,
+                component: EquipmentListComponent,
+            }
+            ,
+            {
+                path: 'new',
+                component: NewEquipmentComponent,
             }
         ],
     }

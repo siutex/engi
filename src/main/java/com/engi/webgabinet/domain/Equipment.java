@@ -7,6 +7,20 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="equipment")
+@NamedQueries({
+        @NamedQuery(
+                name = "findByEquipmentName",
+                query = "from Equipment u where u.equipmentName = :equipmentName"
+        ),
+        @NamedQuery(
+                name = "findAllEquipment",
+                query = "from Equipment"
+        ),
+        @NamedQuery(
+                name = "findEquipmentById",
+                query = "from Equipment h where h.id = :id"
+        ),
+})
 public class Equipment implements java.io.Serializable{
 
 private static final long serialVersionUID = 2L;

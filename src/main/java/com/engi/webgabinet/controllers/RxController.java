@@ -41,7 +41,7 @@ public class RxController {
 	
 	@GetMapping(value="/rx", produces="application/json")
 	public List<RxDTO> getRx(ModelMap model) {		
-		List<Rx> rxList = null;
+		List<Rx> rxList;
 		User user = getUser();
 		if(user.getRole() == 1) {
 			rxList = rxService.findByDoctorId(user.getId());
@@ -61,7 +61,6 @@ public class RxController {
 	
 	@PostMapping(value="/rx/new", produces="application/json")
 	public Rx createRx(ModelMap model, @RequestBody RxDTO reqRx) {
-		System.out.println("Inside createRx......");
 		Rx rx = new Rx();
 		rx.setMedicine(reqRx.getMedicine());
 		rx.setSymptoms(reqRx.getSymptoms());

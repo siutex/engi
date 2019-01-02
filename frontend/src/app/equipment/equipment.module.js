@@ -12,6 +12,9 @@ var common_1 = require("@angular/common");
 var core_1 = require("@angular/core");
 var equipment_routing_module_1 = require("./equipment-routing.module");
 var equipment_component_1 = require("./equipment.component");
+var new_equipment_component_1 = require("./new-equipment.component");
+var equipment_list_component_1 = require("./equipment-list.component");
+var equipment_service_1 = require("./equipment.service");
 var EquipmentModule = /** @class */ (function () {
     function EquipmentModule() {
     }
@@ -21,9 +24,9 @@ var EquipmentModule = /** @class */ (function () {
                 common_1.CommonModule, forms_1.FormsModule, http_1.HttpModule, equipment_routing_module_1.EquipmentRoutingModule
             ],
             declarations: [
-                equipment_component_1.EquipmentComponent
+                equipment_component_1.EquipmentComponent, new_equipment_component_1.NewEquipmentComponent, equipment_list_component_1.EquipmentListComponent
             ],
-            providers: []
+            providers: [equipment_service_1.EquipmentService]
         })
     ], EquipmentModule);
     return EquipmentModule;

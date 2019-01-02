@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 	public User doesUserExist(String email) throws UserNotFoundException {
 		List<User> users = (List<User>) userDAO.findByEmail(email);
 		if(users.size() == 0) {
-			throw new UserNotFoundException("User does not exist in the database.");
+			throw new UserNotFoundException("brak usera w bazie");
 		} 
 		return users.get(0);
 	}

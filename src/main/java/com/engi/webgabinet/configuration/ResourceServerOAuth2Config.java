@@ -26,15 +26,15 @@ public class ResourceServerOAuth2Config extends ResourceServerConfigurerAdapter 
 	@Override
     public void configure(final HttpSecurity http) throws Exception {
     	http
-    		.requestMatchers().antMatchers("/doctor/**", "/rx/**", "/account/**","/hospital/**")
+    		.requestMatchers().antMatchers("/doctor/**", "/rx/**", "/account/**","/hospital/**", "/equipment/**")
     		.and()
     		.authorizeRequests()
     		.antMatchers(HttpMethod.GET,"/doctor/**").access("#oauth2.hasScope('doctor') and #oauth2.hasScope('read')")
 			.antMatchers(HttpMethod.POST,"/doctor/**").access("#oauth2.hasScope('doctor') and #oauth2.hasScope('write')")
 			.antMatchers(HttpMethod.GET,"/rx/**").access("#oauth2.hasScope('doctor') and #oauth2.hasScope('read')")
 			.antMatchers(HttpMethod.POST,"/rx/**").access("#oauth2.hasScope('doctor') and #oauth2.hasScope('write')")
-				.antMatchers(HttpMethod.GET,"/hospital/**").access("#oauth2.hasScope('doctor') and #oauth2.hasScope('read')")
-				.antMatchers(HttpMethod.POST,"/hospital/**").access("#oauth2.hasScope('doctor') and #oauth2.hasScope('write')")
+            .antMatchers(HttpMethod.GET,"/hospital/**").access("#oauth2.hasScope('doctor') and #oauth2.hasScope('read')")
+            .antMatchers(HttpMethod.GET,"/equipment/**").access("#oauth2.hasScope('doctor') and #oauth2.hasScope('read')")
 			.antMatchers("/account/**").permitAll()
 			.and()
 			.exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler())

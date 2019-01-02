@@ -1,14 +1,19 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 
 @Component({
-    templateUrl: './equipment.component.html'
+    template: `<div style="float:left">
+    <ul class="list-group">
+      <li class="list-group-item"><a routerLink="/equipment" routerLinkActive="active">Urządzenia</a></li>
+      <li class="list-group-item"><a routerLink="/equipment/new" routerLinkActive="active">Dodaj nowe</a></li>
+    </ul>
+  </div>
+  <div style="margin-left: 160px">
+    <router-outlet></router-outlet>
+  </div>
+  `,
 })
-export class EquipmentComponent {
-
-
-
-    onSubmit() {
-        console.log('To be implemented');
+export class EquipmentComponent implements OnInit {
+    ngOnInit(): void {
     }
 }

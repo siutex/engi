@@ -17,7 +17,7 @@ public class RxServiceImpl implements RxService {
 	final static Logger logger = LoggerFactory.getLogger(RxServiceImpl.class);
 
 	@Autowired private RxDAO rxDAO;
-	
+
 	@Override
 	public List<Rx> findByDoctorId(int id) {
 		return rxDAO.findByDoctorId(id);

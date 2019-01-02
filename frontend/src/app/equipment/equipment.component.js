@@ -10,12 +10,11 @@ var core_1 = require("@angular/core");
 var EquipmentComponent = /** @class */ (function () {
     function EquipmentComponent() {
     }
-    EquipmentComponent.prototype.onSubmit = function () {
-        console.log('To be implemented');
+    EquipmentComponent.prototype.ngOnInit = function () {
     };
     EquipmentComponent = __decorate([
         core_1.Component({
-            templateUrl: './equipment.component.html'
+            template: "<div style=\"float:left\">\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\"><a routerLink=\"/equipment\" routerLinkActive=\"active\">Urz\u0105dzenia</a></li>\n      <li class=\"list-group-item\"><a routerLink=\"/equipment/new\" routerLinkActive=\"active\">Dodaj nowe</a></li>\n    </ul>\n  </div>\n  <div style=\"margin-left: 160px\">\n    <router-outlet></router-outlet>\n  </div>\n  ",
         })
     ], EquipmentComponent);
     return EquipmentComponent;

@@ -1,0 +1,67 @@
+<div class="{{alertStyle}}" role="alert" *ngIf="equipStatus.code != ''">{{equipStatus.message}}</div>
+<div>
+    <h2>Nowe urządzenie</h2>
+    <hr/>
+    <form class="form-horizontal" (ngSubmit)="onSubmit()"  #eqForm="ngForm" novalidate>
+        <div class="form-group">
+            <label for="user_id" class="col-sm-2 control-label">Nazwa</label>
+            <div class="col-sm-6">
+                <input type="email"
+                       class="form-control"
+                       id="user_id"
+                       placeholder="Nazwa"
+                       required
+                       [(ngModel)]="equip.equipmentName"
+                       name="patientId"
+                       #patientId="ngModel"
+                >
+                <div [hidden]="equipmentName.valid || equipmentName.pristine"
+                     class="alert alert-danger">
+                    Nazwa jest wymagana
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="symptoms" class="col-sm-2 control-label">Ilośc</label>
+            <div class="col-sm-6">
+        <textarea
+                class="form-control"
+                id="symptoms"
+                placeholder="Ilośc"
+                required
+                [(ngModel)]="equip.quantity"
+                name="symptoms"
+                #quantity="ngModel"
+        ></textarea>
+                <div [hidden]="equip.valid || equip.pristine"
+                     class="alert alert-danger">
+                    ilośc wymagana
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="medicine" class="col-sm-2 control-label">Producent</label>
+            <div class="col-sm-6">
+        <textarea
+                class="form-control"
+                id="medicine"
+                placeholder="Producent"
+                required
+                [(ngModel)]="equip.producer"
+                name="medicine"
+                #producer="ngModel"
+        ></textarea>
+                <div [hidden]="producer.valid || producer.pristine"
+                     class="alert alert-danger">
+                    Producent wymagany
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success"  [disabled]="!eqForm.form.valid">Dodaj</button>
+            </div>
+        </div>
+    </form>
+</div>
+

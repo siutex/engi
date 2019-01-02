@@ -400,7 +400,7 @@ CREATE TABLE `equipment` (
                     `is_maintenance` varchar(3) DEFAULT 'NIE',
                     `is_controled` varchar(3) DEFAULT 'NIE',
                     `last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                    `health_center_id` bigint(20) NOT NULL,
+                    `health_center_id` bigint(20) NOT NULL DEFAULT 1,
                     PRIMARY KEY (`id`),
                     KEY `health_center_id_fk` (`health_center_id`),
                     CONSTRAINT `health_center_id_fk` FOREIGN KEY (`health_center_id`) REFERENCES `health_centre` (`id`)

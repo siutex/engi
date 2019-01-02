@@ -9,6 +9,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var router_1 = require("@angular/router");
 var core_1 = require("@angular/core");
 var equipment_component_1 = require("./equipment.component");
+var new_equipment_component_1 = require("./new-equipment.component");
+var equipment_list_component_1 = require("./equipment-list.component");
 var equipmentRoutes = [
     {
         path: 'equipment',
@@ -16,7 +18,11 @@ var equipmentRoutes = [
         children: [
             {
                 path: '',
-                component: equipment_component_1.EquipmentComponent,
+                component: equipment_list_component_1.EquipmentListComponent,
+            },
+            {
+                path: 'new',
+                component: new_equipment_component_1.NewEquipmentComponent,
             }
         ],
     }

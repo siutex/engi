@@ -30,6 +30,7 @@ var NewRxComponent = /** @class */ (function () {
             _this.alertStyle = 'alert alert-success';
         }, function (error) {
             if (error === 'invalid_token') {
+                _this.router.navigateByUrl('/auth/login');
                 _this.rxStatus.code = 'FAILURE';
                 _this.rxStatus.message = 'Wizyta niedodana. Zaloguj się ponownie';
                 _this.alertStyle = 'alert alert-danger';

@@ -1,0 +1,14 @@
+<div>
+  <h1>Sprzęt</h1>
+  <hr/>
+  <div class="panel panel-info"  *ngFor="let equipment of equiplist">
+    <div class="panel-body">
+      <ul class="list-group">
+        <div class="panel-heading"><strong>{{equipment.equipmentName}}</strong></div>
+        <li class="list-group-item"><strong>Producent</strong>: {{equipment.producer}}</li>
+        <li class="list-group-item"><strong>Ilość</strong>: {{equipment.quantity}}</li>
+      </ul>
+    </div>
+  </div>
+  <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
+</div>
