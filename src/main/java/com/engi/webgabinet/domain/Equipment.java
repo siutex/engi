@@ -23,7 +23,7 @@ import lombok.Data;
 })
 public class Equipment implements java.io.Serializable{
 
-private static final long serialVersionUID = 2L;
+private static final long serialVersionUID = 21L;
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -42,5 +42,4 @@ private static final long serialVersionUID = 2L;
     private String serviceNumber;
     @Column(name = "last_updated")
     private Timestamp lastUpdated;
-
 }

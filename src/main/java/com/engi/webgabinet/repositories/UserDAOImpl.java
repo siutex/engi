@@ -55,24 +55,22 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override
 	public void update(User user) {
-		Session session = this.sessionFactory.openSession();
+		/*Session session = this.sessionFactory.openSession();
 		User persistentUser = (User) session.load(User.class, new Integer(user.getId()));
 		Transaction tx = session.beginTransaction();
 		persistentUser.setFirstName(user.getFirstname());
 		persistentUser.setLastname(user.getLastname());
-		session.update(persistentUser);
-		tx.commit();
+		session.update(user);
+		tx.commit();*/
 		
-//		Session session = this.sessionFactory.openSession();
-//		Transaction tx1 = session.beginTransaction();
-//		User persistentUser = (User) session.load(User.class, new Integer(user.getId()));
-//		tx1.commit();
-//		Transaction tx2 = session.beginTransaction();
-//		user.setEmail(persistentUser.getEmail());
-//		user.setPassword(persistentUser.getPassword());
-//		session.merge(user);		
-//		tx2.commit();
-		
-		
+		Session session = this.sessionFactory.openSession();
+		Transaction tx1 = session.beginTransaction();
+		User persistentUser = (User) session.load(User.class, new Integer(user.getId()));
+		tx1.commit();
+		Transaction tx2 = session.beginTransaction();
+		user.setEmail(persistentUser.getEmail());
+		user.setPassword(persistentUser.getPassword());
+		session.merge(user);
+		tx2.commit();
 	}
 }

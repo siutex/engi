@@ -13,6 +13,7 @@ import java.util.List;
 @Repository
 @Transactional
 public class HealthCenterDAOImpl implements HealthCentreDAO {
+
     private SessionFactory sessionFactory;
 
     @Autowired

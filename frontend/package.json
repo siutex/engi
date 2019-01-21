@@ -41,8 +41,10 @@
     "angular-in-memory-web-api": "~0.3.0",
     "core-js": "^2.4.1",
     "ng2-cookies": "^1.0.12",
+    "primeng": "~4.1.0",
+    "primeng-extensions-wizard": "~2.1.0",
     "rxjs": "5.4.2",
-    "systemjs": "0.19.40",
+    "systemjs": "^0.19.40",
     "typescript": "^2.4.1",
     "zone.js": "^0.8.4"
   },

@@ -30,7 +30,7 @@ public class EquipmentController {
 
 
     @GetMapping(value = "/equipment", produces = "application/json")
-    public List<EquipmentDTO> getHealthCenter(ModelMap model) {
+    public List<EquipmentDTO> getEquip (ModelMap model) {
         List<Equipment> equipmentList = equipmentService.findAll();
         List<EquipmentDTO> equipmentDTOS = new ArrayList<>();
         for (Equipment equipment : equipmentList) {
@@ -41,6 +41,7 @@ public class EquipmentController {
             equipmentDTO.setServiceNumber(equipment.getServiceNumber());
             equipmentDTO.setProducer(equipment.getProducer());
             equipmentDTO.setLastUpdated(equipment.getLastUpdated());
+            equipmentDTOS.add(equipmentDTO);
         }
         return equipmentDTOS;
     }
@@ -52,7 +53,6 @@ public class EquipmentController {
         equipment.setQuantity(equipReq.getQuantity());
         equipment.setServiceNumber(equipReq.getServiceNumber());
         equipment.setLastUpdated(equipReq.getLastUpdated());
-
         equipmentService.save(equipment);
         return equipment;
     }

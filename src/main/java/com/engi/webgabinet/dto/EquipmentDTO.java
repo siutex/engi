@@ -14,4 +14,5 @@ public class EquipmentDTO {
     private boolean isControled;
     private String serviceNumber;
     private Timestamp lastUpdated;
+    private int healthCentreId;
 }

@@ -6,11 +6,13 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
 
-import {Login, LoginStatus, NewUser, SignupStatus} from './login';
+import {Login, LoginStatus, NewUser, SignupStatus, User} from './login';
 import {Observer} from 'rxjs/Observer';
 import {Headers} from '@angular/http';
 import {Router} from '@angular/router';
 import {Cookie} from 'ng2-cookies';
+
+
 
 @Injectable()
 export class AuthService {
@@ -41,7 +43,14 @@ export class AuthService {
       .then(res => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Błąd serwera'));
   }
-
+  updateUser(user: User): Promise<SignupStatus> {
+    const url = `${this.serverUrl}/account/user/update`;
+    const options       = new RequestOptions({ headers: this.headers });
+    return this.http.post(url, user, options)
+        .toPromise()
+        .then(res => res.json())
+        .catch((error: any) => Observable.throw(error.json().error || 'Błąd serwera'));
+  }
   login(login: Login): Observable<LoginStatus> {
     let params = new URLSearchParams();
     params.append('username', login.email);
@@ -105,7 +114,7 @@ export class AuthService {
   }
   getUser() {
     if (this.checkLoginStatus()) {
-
+        console.log(this.token());
     };
   }
 }

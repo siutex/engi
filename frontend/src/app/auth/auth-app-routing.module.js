@@ -13,7 +13,7 @@ var login_component_1 = require("./login.component");
 var user_registration_component_1 = require("./user-registration.component");
 var forgot_password_component_1 = require("./forgot-password.component");
 var logout_component_1 = require("./logout.component");
-var profile_component_1 = require("./profile.component");
+var profile_component_1 = require("../user/profile.component");
 var authRoutes = [
     {
         path: 'auth', component: auth_component_1.AuthComponent,

@@ -20,6 +20,7 @@ import {RouterStubModule} from './testing/router-stub.module';
 import {RouterModule} from '@angular/router';
 import {EquipmentModule} from './equipment/equipment.module';
 
+
 @NgModule({
     imports: [CommonModule, FormsModule, RouterModule, PipeModule, AuthModule, HttpModule, DocModule, UserModule,
         RxModule, RouterStubModule, AppRoutingModule, HospitalModule, EquipmentModule],

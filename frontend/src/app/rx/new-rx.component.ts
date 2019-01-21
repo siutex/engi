@@ -33,7 +33,6 @@ export class NewRxComponent {
         } else {
           console.error('Błąd przy tworzeniu wizyty przekierowanie na główną: ', error);
         }
-          // this.router.navigateByUrl('/rx/new');
           this.rxStatus.code = 'FAILURE';
           this.rxStatus.message = 'Taki pacjent nie istnieje';
           this.alertStyle = 'alert alert-danger';

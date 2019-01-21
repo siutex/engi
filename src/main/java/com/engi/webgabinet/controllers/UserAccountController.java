@@ -8,6 +8,9 @@ import com.engi.webgabinet.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -30,6 +33,8 @@ public class UserAccountController {
         this.userService = userService;
         this.docService = docService;
     }
+
+
 
     @GetMapping(value = "/token")
     public Map<String, String> getToken(HttpSession session) {
@@ -69,9 +74,15 @@ public class UserAccountController {
     }
 
     @PostMapping(value = "/user/update")
-    public ExecutionStatus updateUser(ModelMap model, @RequestBody User reqUser) {
-        User user = new User();
-        user.setId(reqUser.getId());
+    public ExecutionStatus procesUpdateUser(ModelMap model, @RequestBody User reqUser) {
+        User user = null;
+        try {
+            user = userService.doesUserExist(reqUser.getEmail());
+        } catch (UserNotFoundException e) {
+        }
+        user = new User();
+        user.setEmail(reqUser.getEmail());
+        user.setPassword(reqUser.getPassword());
         user.setFirstName(reqUser.getFirstname());
         user.setLastname(reqUser.getLastname());
         user.setContactNumber(reqUser.getContactNumber());
@@ -81,6 +92,7 @@ public class UserAccountController {
         user.setCountryCode(reqUser.getCountryCode());
         user.setAge(reqUser.getAge());
         user.setGender(reqUser.getGender());
+        user.setRole(reqUser.getRole());
         userService.update(user);
         return new ExecutionStatus("USER_ACCOUNT_UPDATED", "Dane użytkownika zaaktualizowane");
     }
@@ -107,5 +119,11 @@ public class UserAccountController {
         }
         model.addAttribute("message", "An email notification is sent to the registered email address.");
         return new ModelAndView("forgotpassword", model);
+    }
+
+    private String getUserEmailAddress() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        return userDetails.getUsername();
     }
 }

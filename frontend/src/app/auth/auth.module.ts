@@ -12,7 +12,7 @@ import { AuthService } from './auth.service';
 import {  AuthRoutingModule } from './auth-app-routing.module';
 import { LogoutComponent } from './logout.component';
 import {CommonModule} from '@angular/common';
-import {ProfileComponent} from './profile.component';
+import {ProfileComponent} from '../user/profile.component';
 
 
 @NgModule({

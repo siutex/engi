@@ -42,6 +42,14 @@ var AuthService = /** @class */ (function () {
             .then(function (res) { return res.json(); })
             .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Błąd serwera'); });
     };
+    AuthService.prototype.updateUser = function (user) {
+        var url = this.serverUrl + "/account/user/update";
+        var options = new http_1.RequestOptions({ headers: this.headers });
+        return this.http.post(url, user, options)
+            .toPromise()
+            .then(function (res) { return res.json(); })
+            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Błąd serwera'); });
+    };
     AuthService.prototype.login = function (login) {
         var _this = this;
         var params = new URLSearchParams();
@@ -100,6 +108,7 @@ var AuthService = /** @class */ (function () {
     };
     AuthService.prototype.getUser = function () {
         if (this.checkLoginStatus()) {
+            console.log(this.token());
         }
         ;
     };

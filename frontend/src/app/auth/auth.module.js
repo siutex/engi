@@ -16,7 +16,7 @@ var auth_service_1 = require("./auth.service");
 var auth_app_routing_module_1 = require("./auth-app-routing.module");
 var logout_component_1 = require("./logout.component");
 var common_1 = require("@angular/common");
-var profile_component_1 = require("./profile.component");
+var profile_component_1 = require("../user/profile.component");
 var AuthModule = /** @class */ (function () {
     function AuthModule() {
     }

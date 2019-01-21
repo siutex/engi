@@ -25,7 +25,7 @@ public class HealthCenterController {
     @GetMapping(value = "/hospital", produces = "application/json")
     public List<HealthCenterDTO> getHealthCenter(ModelMap model) {
         List<HealthCentre> healthCentreList = healthCenterService.findAll();
-        List<HealthCenterDTO> healthCenterDTOList = new ArrayList<HealthCenterDTO>();
+        List<HealthCenterDTO> healthCenterDTOList = new ArrayList<>();
         for (HealthCentre healthCentre : healthCentreList) {
             HealthCenterDTO healthCenterDTO = new HealthCenterDTO();
             healthCenterDTO.setHealthCenterId(healthCentre.getId());

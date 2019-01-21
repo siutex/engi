@@ -12,8 +12,8 @@
                        placeholder="Nazwa"
                        required
                        [(ngModel)]="equip.equipmentName"
-                       name="patientId"
-                       #patientId="ngModel"
+                       name="equipmentName"
+                       #equipmentName="ngModel"
                 >
                 <div [hidden]="equipmentName.valid || equipmentName.pristine"
                      class="alert alert-danger">
@@ -30,10 +30,10 @@
                 placeholder="Ilośc"
                 required
                 [(ngModel)]="equip.quantity"
-                name="symptoms"
+                name="quantity"
                 #quantity="ngModel"
         ></textarea>
-                <div [hidden]="equip.valid || equip.pristine"
+                <div [hidden]="quantity.valid || quantity.pristine"
                      class="alert alert-danger">
                     ilośc wymagana
                 </div>
@@ -48,7 +48,7 @@
                 placeholder="Producent"
                 required
                 [(ngModel)]="equip.producer"
-                name="medicine"
+                name="producer"
                 #producer="ngModel"
         ></textarea>
                 <div [hidden]="producer.valid || producer.pristine"
@@ -59,7 +59,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-success"  [disabled]="!eqForm.form.valid">Dodaj</button>
+                <button type="submit" class="btn btn-success"  [disabled]="!eqForm.form.valid">Dodaj sprzęt</button>
             </div>
         </div>
     </form>

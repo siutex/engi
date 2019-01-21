@@ -20,11 +20,11 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
         name = "findByDoctorId",
-        query = "from Rx r where r.doctor.user.id = :id"
+        query = "from Rx r where r.doctor.user.id = :id order by r.createTime DESC"
         ),
     @NamedQuery(
             name = "findByUserId",
-            query = "from Rx r where r.user.id = :id"
+            query = "from Rx r where r.user.id = :id order by r.createTime DESC"
             ),
 })
 public class Rx {
