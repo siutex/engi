@@ -1,9 +1,8 @@
 package com.engi.webgabinet.configuration;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
+import com.engi.webgabinet.domain.User;
+import com.engi.webgabinet.exceptions.UserNotFoundException;
+import com.engi.webgabinet.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -12,55 +11,55 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-//import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import com.engi.webgabinet.domain.User;
-import com.engi.webgabinet.exceptions.UserNotFoundException;
-import com.engi.webgabinet.services.UserService;
+import java.util.ArrayList;
+import java.util.List;
+
+//import org.springframework.security.core.userdetails.User;
 
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
-	@Autowired
-	private UserService userService;
+    @Autowired
+    private UserService userService;
 
-	public CustomAuthenticationProvider() {
+    public CustomAuthenticationProvider() {
         super();
     }
-	
-	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-		final String username = authentication.getName();
-		final String password = authentication.getCredentials().toString();
 
-		User user = null;
-		try {
-			user = userService.doesUserExist(username);
-		} catch (UserNotFoundException e) {
-		}
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        final String username = authentication.getName();
+        final String password = authentication.getCredentials().toString();
 
-		if (user == null || !user.getEmail().equalsIgnoreCase(username)) {
-			throw new BadCredentialsException("Username not found.");
-		}
+        User user = null;
+        try {
+            user = userService.doesUserExist(username);
+        } catch (UserNotFoundException e) {
+        }
 
-		if (!password.equals(user.getPassword())) {
-			throw new BadCredentialsException("Wrong password.");
-		}
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		if(user.getRole() == 1) {
-			authorities.add(new SimpleGrantedAuthority("ROLE_DOCTOR"));
-		} else {
-			authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-		}		
-        final UserDetails principal = new org.springframework.security.core.userdetails.User(username, password, authorities);        
-		return new UsernamePasswordAuthenticationToken(principal, password, authorities);
-	}
-	
-	@Override
+        if (user == null || !user.getEmail().equalsIgnoreCase(username)) {
+            throw new BadCredentialsException("Username not found.");
+        }
+
+        if (!password.equals(user.getPassword())) {
+            throw new BadCredentialsException("Wrong password.");
+        }
+        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+        if (user.getRole() == 1) {
+            authorities.add(new SimpleGrantedAuthority("ROLE_DOCTOR"));
+        } else {
+            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+        }
+        final UserDetails principal = new org.springframework.security.core.userdetails.User(username, password, authorities);
+        return new UsernamePasswordAuthenticationToken(principal, password, authorities);
+    }
+
+    @Override
     public boolean supports(Class<?> authentication) {
         return authentication.equals(
-          UsernamePasswordAuthenticationToken.class);
+                UsernamePasswordAuthenticationToken.class);
     }
 
 }

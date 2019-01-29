@@ -1,9 +1,6 @@
 package com.engi.webgabinet.repositories;
 
-import java.util.List;
-
-import javax.persistence.TypedQuery;
-
+import com.engi.webgabinet.domain.Rx;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -12,48 +9,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.engi.webgabinet.controllers.RxController;
-import com.engi.webgabinet.domain.Doctor;
-import com.engi.webgabinet.domain.Rx;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 @Repository
 @Transactional
 public class RxDAOImpl implements RxDAO {
-	
-	final static Logger logger = LoggerFactory.getLogger(RxDAOImpl.class);
 
-	private SessionFactory sessionFactory;
-    
-	@Autowired 
-	public RxDAOImpl(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
-	
-	@Override
-	public List<Rx> findByDoctorId(int doctorId) {
-		Session session = this.sessionFactory.getCurrentSession();
-        TypedQuery<Rx> query = session.getNamedQuery("findByDoctorId");  
+    final static Logger logger = LoggerFactory.getLogger(RxDAOImpl.class);
+
+    private SessionFactory sessionFactory;
+
+    @Autowired
+    public RxDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
+    @Override
+    public List<Rx> findByDoctorId(int doctorId) {
+        Session session = this.sessionFactory.getCurrentSession();
+        TypedQuery<Rx> query = session.getNamedQuery("findByDoctorId");
         query.setParameter("id", doctorId);
         List<Rx> rxList = query.getResultList();
-		return rxList;
-	}
+        return rxList;
+    }
 
-	@Override
-	public List<Rx> findByUserId(int userId) {
-		Session session = this.sessionFactory.getCurrentSession();
-        TypedQuery<Rx> query = session.getNamedQuery("findByUserId");  
+    @Override
+    public List<Rx> findByUserId(int userId) {
+        Session session = this.sessionFactory.getCurrentSession();
+        TypedQuery<Rx> query = session.getNamedQuery("findByUserId");
         query.setParameter("id", userId);
         List<Rx> rxList = query.getResultList();
-		return rxList;
-	}
+        return rxList;
+    }
 
-	@Override
-	public Rx save(Rx rx) {
-		Session session = this.sessionFactory.openSession();
-		session.save(rx);
-		session.close();
-		return rx;
-	}
-	
+    @Override
+    public Rx save(Rx rx) {
+        Session session = this.sessionFactory.openSession();
+        session.save(rx);
+        session.close();
+        return rx;
+    }
+
 
 }

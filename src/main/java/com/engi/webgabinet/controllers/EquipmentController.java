@@ -1,12 +1,7 @@
 package com.engi.webgabinet.controllers;
 
-import com.engi.webgabinet.domain.Doctor;
 import com.engi.webgabinet.domain.Equipment;
-import com.engi.webgabinet.domain.Rx;
-import com.engi.webgabinet.domain.User;
 import com.engi.webgabinet.dto.EquipmentDTO;
-import com.engi.webgabinet.dto.RxDTO;
-import com.engi.webgabinet.exceptions.UserNotFoundException;
 import com.engi.webgabinet.services.EquipmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +25,7 @@ public class EquipmentController {
 
 
     @GetMapping(value = "/equipment", produces = "application/json")
-    public List<EquipmentDTO> getEquip (ModelMap model) {
+    public List<EquipmentDTO> getEquip(ModelMap model) {
         List<Equipment> equipmentList = equipmentService.findAll();
         List<EquipmentDTO> equipmentDTOS = new ArrayList<>();
         for (Equipment equipment : equipmentList) {
@@ -45,7 +40,8 @@ public class EquipmentController {
         }
         return equipmentDTOS;
     }
-    @PostMapping(value="/equipment/new", produces="application/json")
+
+    @PostMapping(value = "/equipment/new", produces = "application/json")
     public Equipment createEquipment(ModelMap model, @RequestBody EquipmentDTO equipReq) {
         Equipment equipment = new Equipment();
         equipment.setEquipmentName(equipReq.getEquipmentName());

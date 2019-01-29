@@ -1,26 +1,15 @@
 package com.engi.webgabinet.controllers;
 
-import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.engi.webgabinet.domain.Doctor;
 import com.engi.webgabinet.helpers.DoctorInfo;
 import com.engi.webgabinet.services.DoctorService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class DoctorSearchController {
@@ -39,7 +28,7 @@ public class DoctorSearchController {
 	@RequestMapping(value="/doctor/{code}", method=RequestMethod.GET)
 	public DoctorInfo getBySpecialityCode(ModelMap model, @PathVariable("code") String code) {
 		List<Doctor> doctors = docService.findBySpeciality(code);
-		if(doctors == null) {
+		if (doctors == null) {
 			return new DoctorInfo("No Doctors found!", null);
 		}
 		return new DoctorInfo("Doctors found", doctors);
