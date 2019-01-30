@@ -42,4 +42,7 @@ private static final long serialVersionUID = 21L;
     private String serviceNumber;
     @Column(name = "last_updated")
     private Timestamp lastUpdated;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "health_centre_id")
+    private HealthCentre healthCentre;
 }

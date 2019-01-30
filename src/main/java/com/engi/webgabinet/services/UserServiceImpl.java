@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User isValidUser(String email, String password) throws UnmatchingUserCredentialsException {
-		List<User> users = (List<User>) userDAO.findByEmailAndPassword(email, password);
+		List<User> users =  userDAO.findByEmailAndPassword(email, password);
 		if(users == null || users.size() == 0) {
 			throw new UnmatchingUserCredentialsException("User with given credentials is not found in the database.");
 		} 

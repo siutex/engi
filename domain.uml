@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.engi.webgabinet.domain</OriginalElement>
+  <nodes>
+    <node x="0.0" y="432.0">com.engi.webgabinet.domain.Doctor</node>
+    <node x="40.45000000000002" y="0.0">com.engi.webgabinet.domain.User</node>
+    <node x="63.575" y="644.0">com.engi.webgabinet.domain.Rx</node>
+    <node x="528.45" y="-6.0">com.engi.webgabinet.domain.HealthCentre</node>
+    <node x="488.45000000000005" y="307.0">com.engi.webgabinet.domain.Equipment</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.engi.webgabinet.domain.Equipment" target="com.engi.webgabinet.domain.HealthCentre">
+      <point x="5.6843418860808015E-14" y="-125.0" />
+      <point x="0.0" y="114.0" />
+    </edge>
+    <edge source="com.engi.webgabinet.domain.Doctor" target="com.engi.webgabinet.domain.User">
+      <point x="-54.0" y="-81.0" />
+      <point x="54.0" y="407.0" />
+      <point x="73.32500000000002" y="407.0" />
+      <point x="-98.625" y="191.0" />
+    </edge>
+    <edge source="com.engi.webgabinet.domain.Rx" target="com.engi.webgabinet.domain.Doctor">
+      <point x="-27.0" y="-92.0" />
+      <point x="144.575" y="619.0" />
+      <point x="162.0" y="619.0" />
+      <point x="54.0" y="81.0" />
+    </edge>
+    <edge source="com.engi.webgabinet.domain.Rx" target="com.engi.webgabinet.domain.User">
+      <point x="81.0" y="-92.0" />
+      <point x="252.575" y="619.0" />
+      <point x="237.5" y="619.0" />
+      <point x="237.5" y="407.0" />
+      <point x="270.57500000000005" y="407.0" />
+      <point x="98.625" y="191.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="401.5" y="223.5" />
+  <SelectedNodes>
+    <node>com.engi.webgabinet.domain.Equipment</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
