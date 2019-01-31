@@ -37,13 +37,6 @@ export class DoctorService {
     return this.doctors;
 
   }
-
-  getDoctorsCount() {
-    return this.http.get(this.doctorsUrl + '/count')
-      .map((res: Response) => res.json().count)
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-  }
-
   private extractData(res: Response) {
     let body = res.json();
     let doctors = [];
@@ -55,4 +48,11 @@ export class DoctorService {
     }
     return doctors;
   }
+
+  getDoctorsCount() {
+    return this.http.get(this.doctorsUrl + '/count')
+        .map((res: Response) => res.json().count)
+        .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
 }

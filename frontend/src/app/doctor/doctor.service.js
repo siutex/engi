@@ -38,11 +38,6 @@ var DoctorService = /** @class */ (function () {
             .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
         return this.doctors;
     };
-    DoctorService.prototype.getDoctorsCount = function () {
-        return this.http.get(this.doctorsUrl + '/count')
-            .map(function (res) { return res.json().count; })
-            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
-    };
     DoctorService.prototype.extractData = function (res) {
         var body = res.json();
         var doctors = [];
@@ -53,6 +48,11 @@ var DoctorService = /** @class */ (function () {
             this.doctorsCount++;
         }
         return doctors;
+    };
+    DoctorService.prototype.getDoctorsCount = function () {
+        return this.http.get(this.doctorsUrl + '/count')
+            .map(function (res) { return res.json().count; })
+            .catch(function (error) { return Observable_1.Observable.throw(error.json().error || 'Server error'); });
     };
     DoctorService = __decorate([
         core_1.Injectable(),
