@@ -1,5 +1,5 @@
-import {async, ComponentFixture, TestBed, inject, getTestBed} from '@angular/core/testing';
-import {BaseRequestOptions, Http, HttpModule} from '@angular/http';
+import {async, getTestBed, TestBed} from '@angular/core/testing';
+import {BaseRequestOptions, Http} from '@angular/http';
 
 import {DoctorService} from './doctor.service';
 import {MockBackend} from '@angular/http/testing';

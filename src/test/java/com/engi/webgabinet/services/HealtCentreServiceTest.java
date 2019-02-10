@@ -1,6 +1,5 @@
 package com.engi.webgabinet.services;
 
-import com.engi.webgabinet.repositories.EquipmentDAO;
 import com.engi.webgabinet.repositories.HealthCentreDAO;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,10 +13,11 @@ import java.util.ArrayList;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class HealtCentreTest {
+public class HealtCentreServiceTest {
+
     @MockBean
     private HealthCentreDAO healthCentreDAO;
-
+    private HealthCenterService healthCenterService;
 
     @BeforeEach
     public void setUp() throws Exception {
@@ -30,11 +30,11 @@ public class HealtCentreTest {
     }
 
     @Test
-    @DisplayName("Rzuca wyjątek jeśli brak Sprzętu w bazie")
+    @DisplayName("Rzuca wyjątek jeśli brak Gabinetu w bazie")
     public void Should_throwException_When_UserDoesNotExist() {
         String email = "foo@bar.com";
-        Mockito.when(this.equipmentDAO.findAllEquip()).thenReturn(new ArrayList<>());
-        assertThatThrownBy(() -> this.equipmentService.findAll()).isInstanceOf(NullPointerException.class)
+        Mockito.when(this.healthCentreDAO.findAll()).thenReturn(new ArrayList<>());
+        assertThatThrownBy(() -> this.healthCenterService.findAll()).isInstanceOf(NullPointerException.class)
                 .hasMessage(null);
     }
 }

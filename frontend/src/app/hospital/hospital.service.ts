@@ -16,7 +16,6 @@ export class HospitalService {
             'Content-type': 'application/json',
             'Authorization': 'Bearer ' + Cookie.get('access_token')
         });
-
         return this.http.get(this.hospitalUrl, {headers: headers})
             .map(res => res.json())
             .catch(err => {

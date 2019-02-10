@@ -17,7 +17,6 @@ export class RxService {
       'Content-type': 'application/json',
       'Authorization': 'Bearer ' + Cookie.get('access_token')
     });
-
     return this.http.get(this.rxUrl, {headers: headers})
       .map(res => res.json())
       .catch(err => {

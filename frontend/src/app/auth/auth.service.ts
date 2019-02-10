@@ -112,9 +112,4 @@ export class AuthService {
       })
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
-  getUser() {
-    if (this.checkLoginStatus()) {
-        console.log(this.token());
-    };
-  }
 }

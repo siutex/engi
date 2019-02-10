@@ -1,6 +1,7 @@
 package com.engi.webgabinet.services;
 
-import com.engi.webgabinet.domain.User;
+
+import com.engi.webgabinet.exceptions.UnmatchingUserCredentialsException;
 import com.engi.webgabinet.exceptions.UserNotFoundException;
 import com.engi.webgabinet.repositories.UserDAO;
 import org.junit.jupiter.api.*;
@@ -11,18 +12,15 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
-
-import static org.aspectj.bridge.MessageUtil.fail;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 
 
 @ExtendWith(SpringExtension.class)
 @Tag("Service")
-public class UserServiceTests {
+public class UserServiceTest {
 
     @MockBean
-
     private UserDAO userDAO;
 
     private UserService userService;
@@ -39,7 +37,6 @@ public class UserServiceTests {
     }
 
     @Test
-   // @RepeatedTest(5)
     @DisplayName("Rzuca wyjątek jeśli brak Usera w bazie")
     public void Should_throwException_When_UserDoesNotExist() {
         String email = "foo@bar.com";
@@ -49,7 +46,13 @@ public class UserServiceTests {
     }
 
     @Test
-	@DisplayName("Throws exception if user with given email & password is not found in the database")
+	@DisplayName("Rzuca wyjątek jeśli  User z zadanym emailem i hasłem nie istnieje w bazie")
 	public void Should_throwException_When_UnmatchingUserCredentialsFound() {
-		fail("Not yet implemented"); }
+        String email = "foo@bar.com";
+        String password = "xxx";
+        Mockito.when(this.userDAO.findByEmail(email)).thenReturn(new ArrayList<>());
+        assertThatThrownBy(() -> this.userService.isValidUser(email, password)).isInstanceOf(UnmatchingUserCredentialsException.class)
+                .hasMessage("User o tych danych nie istnieje");
+
+    }
 }
